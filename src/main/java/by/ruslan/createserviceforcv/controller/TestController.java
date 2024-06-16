@@ -17,11 +17,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/test")
 public class TestController {
-    TestsRepository testsRepository;
-    @Autowired
-    TestService testsService;
-    @Autowired
-    TestsMapper testsMapper;
+
+    private final TestsRepository testsRepository;
+
+    private final TestService testsService;
+
+    private final TestsMapper testsMapper;
+
+    public TestController(TestsRepository testsRepository, TestService testsService, TestsMapper testsMapper) {
+        this.testsRepository = testsRepository;
+        this.testsService = testsService;
+        this.testsMapper = testsMapper;
+    }
 
     @PostMapping
     ResponseEntity<Tests> create(@RequestBody CreateTestDto createTestDto) {
