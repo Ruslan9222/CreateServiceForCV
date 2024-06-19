@@ -1,7 +1,5 @@
 package by.ruslan.createserviceforcv.dto;
 
-import by.ruslan.createserviceforcv.model.Candidate;
-import by.ruslan.createserviceforcv.model.Tests;
 import lombok.*;
 
 import java.time.LocalDate;

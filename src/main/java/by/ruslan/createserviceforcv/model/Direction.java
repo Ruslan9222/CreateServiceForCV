@@ -1,8 +1,9 @@
 package by.ruslan.createserviceforcv.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Getter
