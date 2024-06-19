@@ -3,7 +3,7 @@ package by.ruslan.createserviceforcv.controller;
 import by.ruslan.createserviceforcv.dto.CreateCandidateDto;
 import by.ruslan.createserviceforcv.mapper.CandidateMapper;
 import by.ruslan.createserviceforcv.model.Candidate;
-import by.ruslan.createserviceforcv.model.Direction;
+
 import by.ruslan.createserviceforcv.repository.CandidateRepository;
 import by.ruslan.createserviceforcv.service.CandidateService;
 import lombok.SneakyThrows;
