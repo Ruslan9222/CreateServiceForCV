@@ -24,5 +24,4 @@ public class Candidate extends AbstractModelId {
     private byte[] cv;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Direction> directionList;
-
 }

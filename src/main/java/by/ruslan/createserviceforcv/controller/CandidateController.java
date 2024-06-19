@@ -7,7 +7,6 @@ import by.ruslan.createserviceforcv.model.Candidate;
 import by.ruslan.createserviceforcv.repository.CandidateRepository;
 import by.ruslan.createserviceforcv.service.CandidateService;
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-@Slf4j
 @RestController
 @RequestMapping("/candidate")
 public class CandidateController {
