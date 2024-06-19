@@ -1,7 +1,7 @@
 package by.ruslan.createserviceforcv.controller;
 
 import by.ruslan.createserviceforcv.dto.CreateTestDto;
-import by.ruslan.createserviceforcv.dto.UpdateDirectionDto;
+import by.ruslan.createserviceforcv.dto.UpdateTestDto;
 import by.ruslan.createserviceforcv.mapper.TestsMapper;
 import by.ruslan.createserviceforcv.model.Tests;
 import by.ruslan.createserviceforcv.repository.TestsRepository;
@@ -40,7 +40,7 @@ public class TestController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity.BodyBuilder updateTestById(
-            @RequestBody UpdateDirectionDto updateTestDto,
+            @RequestBody UpdateTestDto updateTestDto,
             @PathVariable("id") long id) {
         testsService.updateTestWithCustomQuery(id, String.valueOf(updateTestDto));
         return ResponseEntity.ok();

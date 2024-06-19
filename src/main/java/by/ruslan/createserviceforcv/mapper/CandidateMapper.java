@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CandidateMapper {
-    public Candidate createCandidateToCandidate (CreateCandidateDto createCandidateDto, byte[] cv, byte[] avatar) {
+    public Candidate createCandidateToCandidate(CreateCandidateDto createCandidateDto, byte[] cv, byte[] avatar) {
         Candidate candidate = new Candidate();
         candidate.setName(createCandidateDto.getName());
         candidate.setSurname(createCandidateDto.getSurname());

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CandidateRepository extends JpaRepository<Candidate,Long> {
+public interface CandidateRepository extends JpaRepository<Candidate, Long> {
 
-    List<Candidate> findAllByName (String candidates, Pageable pageable);
+    List<Candidate> findAllByName(String candidates, Pageable pageable);
 }

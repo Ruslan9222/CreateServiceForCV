@@ -12,10 +12,11 @@ public class TestService {
         this.testsRepository = testsRepository;
     }
 
-    public Tests create(Tests tests){
+    public Tests create(Tests tests) {
         return testsRepository.save(tests);
     }
-    public void updateTestWithCustomQuery(Long id, String testDescription){
+
+    public void updateTestWithCustomQuery(Long id, String testDescription) {
         testsRepository.updateTestByID(id, testDescription);
     }
 }

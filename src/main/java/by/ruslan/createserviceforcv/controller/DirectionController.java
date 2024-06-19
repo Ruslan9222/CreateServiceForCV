@@ -18,9 +18,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/direction")
 public class DirectionController {
-   private final DirectionService directionService;
-   private final DirectionMapper directionMapper;
-   private final DirectionRepository directionRepository;
+    private final DirectionService directionService;
+    private final DirectionMapper directionMapper;
+    private final DirectionRepository directionRepository;
 
     public DirectionController(DirectionService directionService, DirectionMapper directionMapper, DirectionRepository directionRepository) {
         this.directionService = directionService;

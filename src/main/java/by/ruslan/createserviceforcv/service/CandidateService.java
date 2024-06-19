@@ -15,7 +15,7 @@ public class CandidateService {
     }
 
 
-    public Candidate create (Candidate candidate){
+    public Candidate create(Candidate candidate) {
         return candidateRepository.save(candidate);
     }
 
