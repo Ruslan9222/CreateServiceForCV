@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DirectionMapper {
-    public Direction createDirectionToDirection(CreateDirectionDto createDirectionDto){
+    public Direction createDirectionToDirection(CreateDirectionDto createDirectionDto) {
         Direction direction = new Direction();
         direction.setDirectionName(createDirectionDto.getDirectionName());
         direction.setDescription(createDirectionDto.getDescription());

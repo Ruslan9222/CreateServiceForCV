@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TestsMapper {
-    public Tests createTestDtoToTest(CreateTestDto createTestDto){
+    public Tests createTestDtoToTest(CreateTestDto createTestDto) {
         Tests createTest = new Tests();
-        createTest.setTestName(createTest.getTestName());
-        createTest.setTestDescription(createTest.getTestDescription());
+        createTest.setTestName(createTestDto.getTestName());
+        createTest.setTestDescription(createTestDto.getTestDescription());
         createTest.setDirections(createTestDto.getDirections());
         return createTest;
     }
