@@ -46,12 +46,12 @@ public class TestController {
         return ResponseEntity.ok();
     }
 
-    @GetMapping("{testName}/all/{pages}")
+    @GetMapping("{testName}/all/{page}")
     public ResponseEntity<List<Tests>> findAllByTestsName(
             @PathVariable String testName,
-            @PathVariable String pages) {
+            @PathVariable Integer page) {
         List<Tests> allByTestName = testsRepository.findAllByTestName(testName,
-                PageRequest.of(Integer.parseInt(pages), 5, Sort.Direction.ASC, "testName"));
+                PageRequest.of(page, 5, Sort.Direction.ASC, "testName"));
         return ResponseEntity.ok(allByTestName);
     }
 

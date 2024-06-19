@@ -44,12 +44,12 @@ public class DirectionController {
         return ResponseEntity.ok();
     }
 
-    @GetMapping("{directionName}/all/{pages}")
+    @GetMapping("{directionName}/all/{page}")
     public ResponseEntity<List<Direction>> findAllByDirectionName(
             @PathVariable String directionName,
-            @PathVariable String pages) {
+            @PathVariable Integer page) {
         List<Direction> allByDirectionName = directionRepository.findAllByDirectionName(directionName,
-                PageRequest.of(Integer.parseInt(pages), 5, Sort.Direction.ASC, "directionName"));
+                PageRequest.of(page, 5, Sort.Direction.ASC, "directionName"));
         return ResponseEntity.ok(allByDirectionName);
     }
 }
