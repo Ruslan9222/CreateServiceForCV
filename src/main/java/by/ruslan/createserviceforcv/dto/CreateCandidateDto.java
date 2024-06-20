@@ -16,9 +16,7 @@ public class CreateCandidateDto {
     private String name;
     private String surname;
     private String patronymic;
-    private byte[] avatar;
     private String description;
-    private byte[] cv;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Direction> directionList;
 

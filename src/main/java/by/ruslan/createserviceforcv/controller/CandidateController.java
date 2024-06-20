@@ -1,11 +1,9 @@
 package by.ruslan.createserviceforcv.controller;
 
 import by.ruslan.createserviceforcv.dto.CreateCandidateDto;
-import by.ruslan.createserviceforcv.mapper.CandidateMapper;
 import by.ruslan.createserviceforcv.model.Candidate;
 
 import by.ruslan.createserviceforcv.repository.CandidateRepository;
-import by.ruslan.createserviceforcv.service.CandidateService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -21,15 +19,9 @@ import java.util.List;
 @RequestMapping("/candidate")
 public class CandidateController {
     private final CandidateRepository candidateRepository;
-    private final CandidateService candidateService;
-    private final CandidateMapper candidateMapper;
 
-    public CandidateController(CandidateRepository candidateRepository,
-                               CandidateService candidateService,
-                               CandidateMapper candidateMapper) {
+    public CandidateController(CandidateRepository candidateRepository) {
         this.candidateRepository = candidateRepository;
-        this.candidateService = candidateService;
-        this.candidateMapper = candidateMapper;
     }
 
     @SneakyThrows
@@ -38,8 +30,14 @@ public class CandidateController {
                                             @RequestPart("cv") MultipartFile cv,
                                             @RequestPart("avatar") MultipartFile avatar) {
         log.info("Create Candidate", createCandidateDto);
-        Candidate candidateToCandidate = candidateMapper.createCandidateToCandidate(createCandidateDto, cv.getBytes(), avatar.getBytes());
-        Candidate candidate = candidateService.create(candidateToCandidate);
+        Candidate candidate = new Candidate();
+        candidate.setName(createCandidateDto.getName());
+        candidate.setSurname(createCandidateDto.getSurname());
+        candidate.setPatronymic(createCandidateDto.getPatronymic());
+        candidate.setDescription(createCandidateDto.getDescription());
+        candidate.setAvatar(avatar.getBytes());
+        candidate.setCv(cv.getBytes());
+        candidateRepository.save(candidate);
         return ResponseEntity.ok(candidate);
 
     }
