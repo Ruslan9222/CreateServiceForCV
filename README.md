@@ -7,5 +7,6 @@
 6. Docker & Docker Compose
 7. Logging 
 8. Swagger if REST API
+9. Flyway Migration
 
 
