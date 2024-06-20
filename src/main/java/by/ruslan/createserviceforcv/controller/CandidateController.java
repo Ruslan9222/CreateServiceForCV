@@ -7,6 +7,7 @@ import by.ruslan.createserviceforcv.model.Candidate;
 import by.ruslan.createserviceforcv.repository.CandidateRepository;
 import by.ruslan.createserviceforcv.service.CandidateService;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/candidate")
 public class CandidateController {
@@ -35,6 +37,7 @@ public class CandidateController {
     public ResponseEntity<Candidate> create(@RequestPart("candidate") CreateCandidateDto createCandidateDto,
                                             @RequestPart("cv") MultipartFile cv,
                                             @RequestPart("avatar") MultipartFile avatar) {
+        log.info("Create Candidate", createCandidateDto);
         Candidate candidateToCandidate = candidateMapper.createCandidateToCandidate(createCandidateDto, cv.getBytes(), avatar.getBytes());
         Candidate candidate = candidateService.create(candidateToCandidate);
         return ResponseEntity.ok(candidate);

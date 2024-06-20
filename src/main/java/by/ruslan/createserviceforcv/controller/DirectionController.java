@@ -7,6 +7,7 @@ import by.ruslan.createserviceforcv.mapper.DirectionMapper;
 import by.ruslan.createserviceforcv.model.Direction;
 import by.ruslan.createserviceforcv.repository.DirectionRepository;
 import by.ruslan.createserviceforcv.service.DirectionService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -14,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Slf4j
 @RestController
 @RequestMapping("/direction")
 public class DirectionController {
@@ -30,6 +31,7 @@ public class DirectionController {
 
     @PostMapping
     ResponseEntity<Direction> create(@RequestBody CreateDirectionDto createDirectionDto) {
+        log.info("Create direction: {}", createDirectionDto);
         Direction directionToDirection = directionMapper.createDirectionToDirection(createDirectionDto);
         Direction direction = directionService.create(directionToDirection);
         return ResponseEntity.ok(direction);

@@ -6,6 +6,7 @@ import by.ruslan.createserviceforcv.mapper.ResultMapper;
 import by.ruslan.createserviceforcv.model.ResultTests;
 import by.ruslan.createserviceforcv.repository.ResultTestsRepository;
 import by.ruslan.createserviceforcv.service.ResultTestsService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/result")
 public class ResultTestsController {
@@ -29,6 +31,7 @@ public class ResultTestsController {
 
     @PostMapping
     ResponseEntity<ResultTests> create(@RequestBody ResultTestsDto resultTestsDto) {
+        log.info("Creating new result tests", resultTestsDto);
         ResultTests resultTestsToResult = resultMapper.createResultToResult(resultTestsDto);
         ResultTests resultTests = resultTestsService.create(resultTestsToResult);
         return ResponseEntity.ok(resultTests);
@@ -37,6 +40,7 @@ public class ResultTestsController {
     @PutMapping("/update/{id}")
     public ResponseEntity.BodyBuilder updateTestById(@RequestBody UpdateResultTestDto updateResultTestDto,
                                                      @PathVariable("id") long id) {
+        log.info("Updating result tests", updateResultTestDto);
         resultTestsService.updateResultWithCustomQuery(id, String.valueOf(updateResultTestDto));
         return ResponseEntity.ok();
     }
