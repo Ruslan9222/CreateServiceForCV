@@ -6,6 +6,7 @@ import by.ruslan.createserviceforcv.mapper.TestsMapper;
 import by.ruslan.createserviceforcv.model.Tests;
 import by.ruslan.createserviceforcv.repository.TestsRepository;
 import by.ruslan.createserviceforcv.service.TestService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/test")
 public class TestController {
@@ -32,6 +34,7 @@ public class TestController {
 
     @PostMapping
     ResponseEntity<Tests> create(@RequestBody CreateTestDto createTestDto) {
+        log.info("Create test: {}", createTestDto);
         Tests testsToTests = testsMapper.createTestDtoToTest(createTestDto);
         Tests tests = testsService.create(testsToTests);
         return ResponseEntity.ok(tests);
