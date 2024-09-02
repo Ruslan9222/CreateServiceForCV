@@ -1,11 +1,9 @@
 package by.ruslan.createserviceforcv.model;
 
 import lombok.*;
+import org.springframework.web.bind.annotation.Mapping;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -19,5 +17,6 @@ public class Tests extends AbstractModelId {
     private String testName;
     private String testDescription;
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "candidate_id", nullable = false)
     private List<Direction> directions;
 }
